@@ -8,6 +8,8 @@
         <title>{{ $title ?? 'Page Title' }}</title>
     </head>
     <body>
+    @include('livewire.navbar.navbar')
+
         {{ $slot }}
     </body>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
