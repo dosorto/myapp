@@ -1,4 +1,6 @@
 <div>
+
+@include('livewire.persona.create')
 <div class="max-w-6xl mx-auto bg-white p-6 rounded shadow-md">
     <h2 class="text-3xl font-extrabold dark:text-white">Personas</h2>
     <hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700">
@@ -37,7 +39,7 @@
             </tr>
         </thead>
         <tbody>
-            @forelse ($personas as $p)
+            @forelse ($listpersonas as $p)
         <h1> </h1>
         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -53,7 +55,8 @@
                     {{$p->dni}}
                 </td>
                 <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    <button wire:click="edit({{ $p->id }})">Editar</button>
+                    <button wire:click="delete({{ $p->id }})" >Eliminar</button>
                 </td>
             </tr>
             @empty
@@ -64,6 +67,6 @@
         </tbody>
     </table>
     <br>
-    {{ $personas->links()  }}
+    {{ $listpersonas->links()  }}
 </div>
 </div>
